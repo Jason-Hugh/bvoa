@@ -1,4 +1,4 @@
-# Environment variables defined in .env
+# Environment variables, CONTAINER_USER and CONTAINER_PASS, defined in .env
 services:
 
   ubuntu:
