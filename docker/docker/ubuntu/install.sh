@@ -6,24 +6,20 @@ apt-get -qq update
 DEBIAN_FRONTEND=noninteractive apt-get -yq -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 apt-get -qq --yes install wget nano vim less gnupg curl man coreutils git
 
-apt-get -qq --yes install systemd locales
-timedatectl set-timezone America/New_York
+apt-get -qq --yes install locales
 locale-gen en_US.UTF-8
 update-locale LANG=en_US.UTF-8
-ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-apt-get -qq --yes install tzdata
 
 ######################################################################
-# Python 3.11:
-apt-get -qq --yes install python3.11
-update-alternatives --install /usr/bin/python python /usr/bin/python3.11 11
-apt-get -qq --yes install python3-pip
-python -m pip install poetry
+# Python 3.12:
+apt-get -qq --yes install python3.12
+update-alternatives --install /usr/bin/python python /usr/bin/python3.12 12
+apt-get -qq --yes install python3-pip python3-poetry
 
 ######################################################################
 # Database clients:
 apt-get -qq --yes install postgresql-client libpq-dev
-python -m pip install psycopg2-binary SQLAlchemy
+python -m pip install python3-psycopg2
 
 # ######################################################################
 # # XML:
