@@ -1,4 +1,4 @@
-# SWGOH Mod Squad
+# BVOA status report and intake form
 
 This web application is used to help players of Star Wars Galaxy of Heros (SWGOH) apply and manage mods on teams of characters. Players who are only interested in applying mods to their characters can use the static web site located [here](https://loreck-swgoh.github.io/SWGOH-Mod-Squad/). If you are interested in doing more you install the web app using the below instructions.
 
