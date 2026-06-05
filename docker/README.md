@@ -1,6 +1,6 @@
 # Docker Containers
 
-This directory contains the files needed to set-up a Docker container(s) to develop your application. There are some basic tutorials on using Docker and integrating your application.
+This directory contains the files needed to set-up a Docker container(s) to develop your application. There are some basic tutorials on using Docker and integrating your application. The installation files are from Duke Univerisity's CPS316 course.
 
 ## Download and Install Files
 
@@ -10,14 +10,16 @@ This directory contains the files needed to set-up a Docker container(s) to deve
 
 * Download (or update) Docker Desktop on your laptop by following the [installation instructions](https://docs.docker.com/get-docker/) for your operating system. If you are using a PC with an Enterprise edition, you can use the Hyper-V Docker configuration. However, this guide will assume that you are using the WSL configuration. Ensure that you can start the Docker Desktop.
 
-* Identify a directory that will contain your Docker containers and your git repositories. We will call this directory your "project directory". We will call the container directory your "container subdirectory".
+* Identify a project directory that will contain the project's Docker container and your project's git repository. We will call this directory your "project directory". We will call the container directory your "container subdirectory".
   ```
   ├── project directory
       └── container
       └── git
       ├── *
   ```
-  The Docker configuration file assumes that the containers and repositories are in the same directory to allow project code access outside of the Docker instance. If you change this structure be sure to change the Docker configuration file. WARNING: It is NOT recommended putting these directories in cloud storage --- permissions on such files may be messed up and you may have trouble running programs that depend on having specific permissions.
+  The Docker configuration file assumes that the containers and repositories are in the same directory to allow project code access outside of the Docker instance. If you change this structure be sure to change the Docker configuration file.
+
+  WARNING: It is NOT recommended putting these directories in cloud storage --- permissions on such files may be incorrect and can affect your ability to run programs that depend on having specific permissions.
 
 * Download all the files in this folder into the `container` subdirectory created above. Since GitHub works on a per repo basis you may have to download the entire repo as an archive (zip, tar, etc.) and extract only the interested files. If it's set up correctly, you should be able to find the file with path `container/compose.yaml` relative to your project directory.
 
@@ -29,9 +31,9 @@ This directory contains the files needed to set-up a Docker container(s) to deve
   ```
   docker compose build
   ```
-  This will take quite some time, as it involves downloading various software and setting things up, but you only have to run this once. When complete you should see the container image in Docker Desktop.
+  This will take quite some time, as it involves downloading various software and setting things up, but you only have to run this once. When complete you should see the container image in the Docker Desktop.
 
-* The default setup assumes that you will access the development code outside the Docker instance and that the development code is located within the git subdirectory that you created above. If you make changes to the location/name of your git subdirectory, then make the appropriate changes to `compose.yml`
+  NOTE: The default setup assumes that you will access the development code outside the Docker instance and that the development code is located within the git subdirectory that you created above. If you make changes to the location/name of your git subdirectory, then make the appropriate changes to `compose.yml`
 
 * In the CLI, from the container subdirectory, to start the containers for the first time, 
   ```
