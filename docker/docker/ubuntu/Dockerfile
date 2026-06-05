@@ -3,8 +3,8 @@ ARG USER
 ARG GROUP
 ARG PASSWD
 
-RUN addgroup --gid 1000 ${GROUP}
-RUN adduser --home /home/${USER} --shell /bin/bash --uid 1000 --gid 1000 --disabled-password ${USER}
+RUN groupadd --gid 1000 ${GROUP}
+RUN useradd --home /home/${USER} --shell /bin/bash --uid 1000 --gid 1000 --disabled-password ${USER}
 RUN echo "${USER}:${PASSWD}" | chpasswd
 
 RUN apt-get update
