@@ -2,10 +2,13 @@ FROM ubuntu:latest
 ARG USER
 ARG GROUP
 ARG PASSWD
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
+ENV PATH="$PATH:/sbin:/usr/sbin:usr/local/sbin"
 
+RUN userdel -rf ubuntu
 RUN groupadd --gid 1000 ${GROUP}
-RUN useradd --home /home/${USER} --shell /bin/bash --uid 1000 --gid 1000 --disabled-password ${USER}
-RUN echo "${USER}:${PASSWD}" | chpasswd
+RUN useradd --home-dir /home/${USER} --create-home --shell /bin/bash --uid 1000 --gid 1000 --password "${PASSWD}" ${USER}
 
 RUN apt-get update
 RUN apt-get -y install sudo
