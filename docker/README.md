@@ -21,7 +21,7 @@ This directory contains the files needed to set-up a Docker container(s) to deve
 
   WARNING: It is NOT recommended putting these directories in cloud storage --- permissions on such files may be incorrect and can affect your ability to run programs that depend on having specific permissions.
 
-* Download all the files in this folder into the `container` subdirectory created above. Since GitHub works on a per repo basis you may have to download the entire repo as an archive (zip, tar, etc.) and extract only the interested files. If it's set up correctly, you should be able to find the file with path `container/compose.yaml` relative to your project directory. Make sure that the `container/.env` file exists. It contains the admin user name for the container.
+* Download all the files in this folder into the `container` subdirectory created above. Since GitHub works on a per repo basis you may have to download the entire repo as an archive (zip, tar, etc.) and extract only the interested files. Docker installation requires that containter subdirectory has at least two files, `container/compose.yaml` and `container/.env`, relative to your project directory. One quirk of downloading code from GitHub is that files like `.env` are not archived. To aboid this issue You should see `container/dot_env`. Rename this file to `.env`. This file contains the admin user name for the container.
 
 ## Getting started
 
