@@ -19,7 +19,7 @@ apt-get -qq --yes install python3-pip python3-poetry
 ######################################################################
 # Database clients:
 apt-get -qq --yes install postgresql-client libpq-dev
-python -m pip install python3-psycopg2
+apt-get -qq --yes install python3-psycopg2
 
 # ######################################################################
 # # XML:
@@ -45,3 +45,8 @@ python -m pip install python3-psycopg2
 # # Spark:
 # apt-get -qq --yes install openjdk-8-jdk
 # python -m pip install pyspark
+
+######################################################################
+# JavaScript:
+apt-get -qq --yes install npm
+
