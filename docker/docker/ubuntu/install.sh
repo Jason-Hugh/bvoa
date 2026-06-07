@@ -12,7 +12,7 @@ update-locale LANG=en_US.UTF-8
 
 ######################################################################
 # Python 3.12:
-apt-get -qq --yes install python3.12
+apt-get -qq --yes install python3
 update-alternatives --install /usr/bin/python python /usr/bin/python3.12 12
 apt-get -qq --yes install python3-pip python3-poetry
 
