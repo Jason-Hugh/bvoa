@@ -1,4 +1,4 @@
-# Environment variables defined in .env
+# Environment variables, CONTAINER_USER and CONTAINER_PASS, defined in .env
 services:
 
   ubuntu:
@@ -12,13 +12,13 @@ services:
     container_name: ubuntu
     environment:
       TZ: "America/New_York"
+      LANG: "en_US.UTF-8"
+      LC_ALL: "en_US.UTF-8"
       PGUSER: ${CONTAINER_USER}
       PGPASSWORD: ${CONTAINER_PASS}
       PGHOST: postgres
       PGPORT: 5432
-      SPARK_HOME: /usr/local/lib/python3.11/dist-packages/pyspark
-      SPARK_LOCAL_DIRS: /home/${CONTAINER_USER}/.spark-tmp
-      PYSPARK_PYTHON: python3.11
+      PYSPARK_PYTHON: python3.12
     tty: true
     stdin_open: true
     user: ${CONTAINER_USER}:${CONTAINER_USER}
@@ -31,6 +31,7 @@ services:
         # setup will write into it before bind takes effect
     ports:
       - "8080:8080"
+      - "5173:5173"
 
   postgres:
     image: postgres
@@ -38,20 +39,21 @@ services:
     environment:
       TZ: "America/New_York"
       PGTZ: "America/New_York"
+      LANG: "en_US.UTF-8"
+      LC_ALL: "en_US.UTF-8"
       POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
       POSTGRES_USER: ${CONTAINER_USER}
       POSTGRES_PASSWORD: ${CONTAINER_PASS}
-      PG_DATA: /var/lib/postgresql/data
+#      PG_DATA: /var/lib/postgresql/data
     restart: always
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql
     ports:
       - 5432
         # use "5432:5432" if you want to expose the port
 
   pgadmin:
     image: dpage/pgadmin4
-    container_name: pgadmin
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: ${CONTAINER_USER}@duke.edu
