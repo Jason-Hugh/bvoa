@@ -33,27 +33,21 @@ With the `Remote Development` extension installed in VS Code you can continue de
 
 Make sure that your Docker containers are running and select the `Open a Remote Window` icon in the bottom left corner of the VS Code window. Select `Attach to Running Container ...` from the dropdown menu of the search box. Select the Ubuntu container.
 
+### Install the Current App
+
+With the remote container connected in VS Code, clone this repo into the `shared` directory in the container.
+
 At this point you can open the git folder located in your `shared` directory. Changes can be committed then synced with your GitHub repository.
 
 ### Creating the Application Environment
 
-This web app uses `poetry` for dependency management. Use of `poetry` ensures that all Python dependencies are installed in the system. In your container shell, change into the repository directory and
-run ./install.sh.  This will install the application's dependecies, create the all-important .env file, and creates a simple
-PostgreSQL database named `mod_squad`.
-
-Since the Docker container is essentially a separate machine from your PC, you'll want to install the following VS Code extensions (from the left side menus):
-
-* Python (Microsoft)
-
-This may require that you select a Python interpreter.
-
+This web app uses `poetry` to ensure that all Python dependencies are installed in the system. From VS Code, open the terminal and run `./install.sh`.  This will install the application's dependecies, create the all-important .env file, create the required `flask` command, and creates a simple PostgreSQL database named `bvoa`.
 
 ## Running/Stopping the Website
 
 To run the web application you will need to be in the `poetry` environment. Issue the following commands to run the application:
 ```
-poetry shell
-flask run
+poetry run flask run
 ```
 
 The first command ensures that you are running within the `poetry` environment while the second command runs the web server (Flask). Do NOT run Flask outside the `poetry` environment; you will get errors.
