@@ -9,7 +9,7 @@ license = "GNU"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "*"
+python = ">=3.8, <4.0"
 flask = "*"
 werkzeug = "*"
 flask-sqlalchemy = "*"
