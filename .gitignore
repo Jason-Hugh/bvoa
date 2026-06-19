@@ -5,6 +5,7 @@
 
 # Flask environment files
 .env
+.flaskenv
 
 # User-specific files
 *.rsuser
