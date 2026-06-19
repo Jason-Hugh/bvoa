@@ -5,17 +5,19 @@ mybase=`dirname "$mypath"`
 cd "$mybase"
 
 SECRET=`tr -dc 'a-z0-9-_' < /dev/urandom | head -c50`
-echo "FLASK_APP=mod_squad.py
+echo "FLASK_APP=bvoa.py
 FLASK_DEBUG=True
 FLASK_RUN_HOST=0.0.0.0
 FLASK_RUN_PORT=8080
 SECRET_KEY='$SECRET'
-DB_NAME=mod_squad
+DB_NAME=bvoa
 DB_USER=${PGUSER}
 DB_PORT=${PGPORT}
 DB_HOST=${PGHOST}
-DB_PASSWORD=${PGPASSWORD}" > .env
+DB_PASSWORD=${PGPASSWORD}" > .flaskenv
 
+rm -f poetry.lock
+rm -rf .venv/
 poetry config virtualenvs.in-project true
 poetry install
 db/setup.sh
