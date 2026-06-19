@@ -12,9 +12,9 @@ update-locale LANG=en_US.UTF-8
 
 ######################################################################
 # Python 3:
-apt-get -qq --yes install python3
-update-alternatives --install /usr/bin/python python /usr/bin/python3 1
-apt-get -qq --yes install python3-pip python3-poetry
+# python3, pip, and python symlink are provided by python:3.14-slim base image
+pip install poetry
+pip install psycopg2
 
 ######################################################################
 # Database clients:
