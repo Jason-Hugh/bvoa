@@ -43,6 +43,10 @@ At this point you can open the git folder located in your `shared` directory. Ch
 
 This web app uses `poetry` to ensure that all Python dependencies are installed in the system. From VS Code, open the terminal and run `./install.sh`.  This will install the application's dependecies, create the all-important .env file, create the required `flask` command, and creates a simple PostgreSQL database named `bvoa`.
 
+### Allow GitHub Pushes
+
+
+
 ## Running/Stopping the Website
 
 To run the web application you will need to be in the `poetry` environment. Issue the following commands to run the application:
