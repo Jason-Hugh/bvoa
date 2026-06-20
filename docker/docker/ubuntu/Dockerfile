@@ -7,7 +7,7 @@ ENV TZ=Etc/UTC
 ENV PATH="$PATH:/sbin:/usr/sbin:usr/local/sbin"
 ENV POETRY_VIRTUALENVS_CREATE=false
 
-RUN userdel -rf ubuntu
+# RUN userdel -rf ubuntu
 RUN groupadd --gid 1000 ${GROUP}
 RUN useradd --home-dir /home/${USER} --create-home --shell /bin/bash --uid 1000 --gid 1000 --password "${PASSWD}" ${USER}
 
