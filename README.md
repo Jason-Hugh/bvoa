@@ -35,17 +35,39 @@ Make sure that your Docker containers are running and select the `Open a Remote 
 
 ### Install the Current App
 
-With the remote container connected in VS Code, clone this repo into the `shared` directory in the container.
+With the remote container connected in VS Code, clone this repo into the `shared` directory in the container. Use SSH, not HTTPS.
 
 At this point you can open the git folder located in your `shared` directory. Changes can be committed then synced with your GitHub repository.
 
-### Creating the Application Environment
-
-This web app uses `poetry` to ensure that all Python dependencies are installed in the system. From VS Code, open the terminal and run `./install.sh`.  This will install the application's dependecies, create the all-important .env file, create the required `flask` command, and creates a simple PostgreSQL database named `bvoa`.
-
 ### Allow GitHub Pushes
 
+1. Using your CLI, create an SSH key to be associated with your GitHub account:
+   ```
+   ssh-keygen -t ed25519 -C "Key description"
+   ```
+   Change the "Key description" to something meaningful. When prompted, just press Enter/Return. At some point you'll be given a choice of yes/no/fingerprint. Type yes.
 
+2. View the SSH key you created
+   ```
+   cat ~/.ssh.id_ed25519.pub
+   ```
+   You should see an output that begines with `ssh-ed25519` and ends with the "Key Description" from step 1. Copy this entire string.
+
+3. On your GitHub account, find Settings->SSH Keys->New SSH Key. Paste the SSH public key from above as a single line
+
+4. Return to your CLI and add the SSH key
+   ```
+   ssh-add -l
+   ```
+
+   You should now be able to push changes that you make in your container to your GitHub repository.
+
+
+### Creating the Application Environment
+
+This web app uses `poetry` to ensure that all Python dependencies are installed in the system. From VS Code, open the terminal and run `./install.sh`.  This will install the application's dependecies, create the all-important .flaskenv file, create the required `flask` command, and creates a simple PostgreSQL database named `bvoa`.
+
+Use the file `.flaskenv` for passwords/secret keys --- we are talking about passwords used to access your database server, for example (not user passwords for your website in CSV files for loading sample database).  This file is NOT tracked by `git` and it was automatically generated when you first ran `./install.sh`.  Don't check it into `git` because your credentials would be exposed to everybody on GitHub if you are not careful. To avoid this issue, ensure that `.gitignore` includes `.flaskenv`.
 
 ## Running/Stopping the Website
 
@@ -116,8 +138,3 @@ running `python gen.py`.
   to the password value in the CSV files too.  To see what hashed
   password value you should put in a CSV file, see `db/data/gen.py`
   for example of how to compute the hashed value.
-
-
-## Note on Hiding Credentials
-
-Use the file `.flaskenv` for passwords/secret keys --- we are talking about passwords used to access your database server, for example (not user passwords for your website in CSV files for loading sample database).  This file is NOT tracked by `git` and it was automatically generated when you first ran `./install.sh`.  Don't check it into `git` because your credentials would be exposed to everybody on GitHub if you are not careful.
