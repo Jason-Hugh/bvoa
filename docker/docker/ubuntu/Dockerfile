@@ -21,6 +21,11 @@ RUN chown -R ${USER}:${GROUP} /home/${USER}
 
 COPY install.sh /opt/install.sh
 RUN /bin/bash -c /opt/install.sh
+
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
+
 COPY install-as-user.sh /opt/install-as-user.sh
 RUN sudo -u ${USER} /bin/bash -c /opt/install-as-user.sh
 
