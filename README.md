@@ -35,7 +35,7 @@ Make sure that your Docker containers are running and select the `Open a Remote 
 
 ### Install the Current App
 
-With the remote container connected in VS Code, clone this repo into the `shared` directory in the container. Use SSH, not HTTPS.
+With the remote container connected in VS Code, clone (using SSH, not HTTPS) this repo into the `shared` directory in the container.
 
 At this point you can open the git folder located in your `shared` directory. Changes can be committed then synced with your GitHub repository.
 
