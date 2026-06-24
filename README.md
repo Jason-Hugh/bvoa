@@ -49,7 +49,7 @@ At this point you can open the git folder located in your `shared` directory. Ch
 
 2. View the SSH key you created
    ```
-   cat ~/.ssh.id_ed25519.pub
+   cat ~/.ssh/id_ed25519.pub
    ```
    You should see an output that begines with `ssh-ed25519` and ends with the "Key Description" from step 1. Copy this entire string.
 
@@ -57,6 +57,7 @@ At this point you can open the git folder located in your `shared` directory. Ch
 
 4. Return to your CLI and add the SSH key
    ```
+   ssh-add ~/.ssh/id_ed25519
    ssh-add -l
    ```
 
