@@ -9,15 +9,15 @@ license = "GNU"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.8, <4.0"
+python = "^3.14"
 flask = "*"
 werkzeug = "*"
 flask-sqlalchemy = "*"
 flask-wtf = "*"
-psycopg2-binary = "*"
+psycopg2-binary = "^2.9.12"
 flask-login = "*"
 email-validator = "*"
-faker = "^19.3.1"
+faker = "*"
 python-dotenv = "*"
 bootstrap-flask = "*"
 
