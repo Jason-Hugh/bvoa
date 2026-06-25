@@ -5,7 +5,7 @@ ARG PASSWD
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 ENV PATH="$PATH:/sbin:/usr/sbin:usr/local/sbin"
-ENV POETRY_VIRTUALENVS_CREATE=false
+# ENV POETRY_VIRTUALENVS_CREATE=false
 
 # RUN userdel -rf ubuntu
 RUN groupadd --gid 1000 ${GROUP}
