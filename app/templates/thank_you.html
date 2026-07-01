@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 50px;">
+  <h1>Your responses have been submitted successfully.</h1>
+  <p>You do not need to keep this page open</p>
+  <a href="{{ url_for('index.index') }}">Return to Home</a>
+</div>
+{% endblock %}

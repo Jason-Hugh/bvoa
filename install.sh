@@ -18,6 +18,8 @@ DB_PASSWORD=${PGPASSWORD}" > .flaskenv
 
 rm -f poetry.lock
 rm -rf .venv/
-poetry config virtualenvs.in-project true
+poetry env remove --all
+poetry cache clear --all pypi
+# poetry config virtualenvs.in-project true
 poetry install
 db/setup.sh

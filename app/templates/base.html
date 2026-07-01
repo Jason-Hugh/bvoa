@@ -57,7 +57,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
       <div class="container-fluid">
-          <a class="navbar-brand" href="{{ url_for('index.index') }}">SWGOH Mod Squad Recommender</a>
+          <a class="navbar-brand" href="{{ url_for('index.index') }}">BVOA Status Report and Location</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
@@ -65,7 +65,7 @@
               <div class="navbar-nav mc-auto">
                   <a class="nav-link" href="{{ url_for('index.index') }}"><i class="fa fa-home"></i>&nbsp;Home</a>
                   <div class="dropdown">
-                      <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle" data-bs-display="static">Teams</a>
+                      <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle" data-bs-display="static">Dropdown 1</a>
                       <div class="dropdown-menu">
                         {% for faction in factions %}
                             <div class="dropdown-submenu">
@@ -81,7 +81,7 @@
                   </div>
 
                   <div class="dropdown">
-                      <a href="#" id="menu" data-bs-toggle="dropdown" class="nav-link dropdown-toggle" data-bs-display="static">Game Play</a>
+                      <a href="#" id="menu" data-bs-toggle="dropdown" class="nav-link dropdown-toggle" data-bs-display="static">Dropdown 2</a>
                       <div class="dropdown-menu">
                           <div class="dropdown-submenu">
                             {% for event in events %}

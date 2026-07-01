@@ -7,14 +7,15 @@ DEBIAN_FRONTEND=noninteractive apt-get -yq -o Dpkg::Options::="--force-confdef" 
 apt-get -qq --yes install wget nano vim less gnupg curl man coreutils git
 
 apt-get -qq --yes install locales
-locale-gen en_US.UTF-8
+sed -i 's/^# *\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
+locale-gen
 update-locale LANG=en_US.UTF-8
 
 ######################################################################
 # Python 3:
-apt-get -qq --yes install python3
-update-alternatives --install /usr/bin/python python /usr/bin/python3 1
-apt-get -qq --yes install python3-pip python3-poetry
+# python3, pip, and python symlink are provided by python:3.14-slim base image
+pip install poetry
+pip install psycopg2
 
 ######################################################################
 # Database clients:

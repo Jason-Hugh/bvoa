@@ -18,7 +18,7 @@ services:
       PGPASSWORD: ${CONTAINER_PASS}
       PGHOST: postgres
       PGPORT: 5432
-      PYSPARK_PYTHON: python3.12
+      # PYSPARK_PYTHON: python3.12
     tty: true
     stdin_open: true
     user: ${CONTAINER_USER}:${CONTAINER_USER}
