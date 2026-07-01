@@ -10,17 +10,20 @@
         {{ form.hidden_tag() }}
         <!-- {{ render_form(form) }} -->
      
+        <p><strong>What is your name?</strong></p>
+        <textarea name="q1_name" rows="1" cols="50" placeholder="Type your answer here..."></textarea>
+
         <p><strong>Are you ok?</strong></p>
-        <label><input type="radio" name="q1_ok" value="yes" required> Yes</label><br>
-        <label><input type="radio" name="q1_ok" value="no"> No</label>
-      
+        <label><input type="radio" name="q2_ok" value="yes" required> Yes</label><br>
+        <label><input type="radio" name="q2_ok" value="no"> No</label>
+        
         <p><strong>Are you safe?</strong></p>
-        <label><input type="radio" name="q2_safety" value="yes" required> Yes</label><br>
-        <label><input type="radio" name="q2_safety" value="no"> No</label>
-      
+        <label><input type="radio" name="q3_safety" value="yes" required> Yes</label><br>
+        <label><input type="radio" name="q3_safety" value="no"> No</label>
+        
         <p><strong>Do you need help?</strong></p>
-        <label><input type="radio" name="q3_need_help" value="yes" required> Yes</label><br>
-        <label><input type="radio" name="q3_need_help" value="no"> No</label>
+        <label><input type="radio" name="q4_need_help" value="yes" required> Yes</label><br>
+        <label><input type="radio" name="q4_need_help" value="no"> No</label>
      
         <br>
         <br>

@@ -42,9 +42,10 @@ def StatusForm():
     status_form = Status()
     
     if request.method == 'POST':
-        ok = request.form.get('q1_ok')
-        safety = request.form.get('q2_safety')
-        need_help = request.form.get('q3_need_help')
+        name = request.form.get('q1_name')
+        ok = request.form.get('q2_ok')
+        safety = request.form.get('q3_safety')
+        need_help = request.form.get('q4_need_help')
         optional_surroundings = request.form.get('q5_optional_surroundings')
         final_notes = request.form.get('q6_final_notes')
 
