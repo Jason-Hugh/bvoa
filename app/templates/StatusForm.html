@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% from 'bootstrap5/form.html' import render_form, render_field %}
+
+    <h2>{{ title }}</h2>
+    <form action="" method="post" novalidate>
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <!-- {{ render_form(form) }} -->
+     
+        <p><strong>Are you ok?</strong></p>
+        <label><input type="radio" name="q1_ok" value="yes" required> Yes</label><br>
+        <label><input type="radio" name="q1_ok" value="no"> No</label>
+      
+        <p><strong>Are you safe?</strong></p>
+        <label><input type="radio" name="q2_safety" value="yes" required> Yes</label><br>
+        <label><input type="radio" name="q2_safety" value="no"> No</label>
+      
+        <p><strong>Do you need help?</strong></p>
+        <label><input type="radio" name="q3_need_help" value="yes" required> Yes</label><br>
+        <label><input type="radio" name="q3_need_help" value="no"> No</label>
+     
+        <br>
+        <br>
+     
+
+        <p><strong>OPTIONAL: Would you like to share your location with us?</strong></p>
+        <button type="button" onclick="getLocation()">Share My Current Location</button>
+<input type="hidden" name="latitude" id="latitude">
+<input type="hidden" name="longitude" id="longitude">
+
+<script>
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      document.getElementById('latitude').value = position.coords.latitude;
+      document.getElementById('longitude').value = position.coords.longitude;
+      alert('Location captured!');
+    }, function(error) {
+      alert('Could not get location: ' + error.message);
+    });
+  } else {
+    alert('Geolocation is not supported by this browser.');
+  }
+}
+</script>
+
+<br>
+<br>
+
+<p><strong>OPTIONAL: Would you like to give us any landmarks or identifying features to help us understand where you are?</strong></p>
+<textarea name="q5_optional_surroundings" rows="4" cols="50" placeholder="Type your answer here..."></textarea>
+
+<p><strong>Is there anything else you'd like us to know?</strong></p>
+<textarea name="q6_final_notes" rows="4" cols="50" placeholder="Type your answer here..."></textarea>
+
+
+
+        
+      
+<br>
+<br>
+
+        {{ form.submit(class_="btn btn-black") }}
+        
+    </form>
+
+{% endblock %}

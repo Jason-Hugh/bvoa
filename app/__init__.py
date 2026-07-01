@@ -29,4 +29,7 @@ def create_app():
     from .controllers.admins import bp as admin_bp
     app.register_blueprint(admin_bp)
 
+    from .controllers.main_form import bp as main_form_bp
+    app.register_blueprint(main_form_bp)
+
     return app
